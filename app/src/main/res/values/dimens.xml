@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="operatorsTextSize">24sp</dimen>
+    <dimen name="numbersTextSize">24sp</dimen>
+    <dimen name="numButtonHight">90dp</dimen>
+    <dimen name="userInputTextSize">60sp</dimen>
+    <dimen name="resultTextViewSize">32sp</dimen>
+
+</resources>

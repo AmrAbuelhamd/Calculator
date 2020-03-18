@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+<!--    android:background="@android:color/white"-->
+
+
+    <!--todo make the new text go off screen-->
+
+    <Button
+        android:id="@+id/_1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_1"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/dot"
+        app:layout_constraintEnd_toStartOf="@+id/_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_4"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/_3"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_3"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/brack"
+        app:layout_constraintEnd_toStartOf="@+id/sum"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_2"
+        app:layout_constraintTop_toBottomOf="@+id/_6" />
+
+    <Button
+        android:id="@+id/_2"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_2"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_0"
+        app:layout_constraintEnd_toStartOf="@+id/_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_1"
+        app:layout_constraintTop_toBottomOf="@+id/_5" />
+
+    <Button
+        android:id="@+id/brack"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="onBrackButtonClicked"
+        android:text="@string/paranth"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/equal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_0"
+        app:layout_constraintTop_toBottomOf="@+id/_3" />
+
+    <Button
+        android:id="@+id/_0"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_0"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/brack"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot"
+        app:layout_constraintTop_toBottomOf="@+id/_2" />
+
+    <Button
+        android:id="@+id/dot"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="onDotButtonClick"
+        android:text="@string/point"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/_0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_1" />
+
+    <Button
+        android:id="@+id/_7"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_7"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_4"
+        app:layout_constraintEnd_toStartOf="@+id/_8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ac" />
+
+    <Button
+        android:id="@+id/_9"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_9"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_6"
+        app:layout_constraintEnd_toStartOf="@+id/mult"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_8"
+        app:layout_constraintTop_toBottomOf="@+id/percent" />
+
+    <Button
+        android:id="@+id/_8"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_8"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_5"
+        app:layout_constraintEnd_toStartOf="@+id/_9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_7"
+        app:layout_constraintTop_toBottomOf="@+id/del" />
+
+    <TextView
+
+        android:id="@+id/userInputTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="start"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:singleLine="true"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/userInputTextSize"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/resultTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="5+5+" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/resultTextViewSize"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="56" />
+
+    <Button
+        android:id="@+id/div"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnOperatorButtonClick"
+        android:text="@string/division"
+        android:textColor="@color/operatorButtonColor"
+        android:textSize="@dimen/operatorsTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/mult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/percent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/mult"
+        android:layout_width="0dp"
+
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnOperatorButtonClick"
+        android:text="@string/multip"
+        android:textColor="@color/operatorButtonColor"
+        android:textSize="@dimen/operatorsTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sub"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_9"
+        app:layout_constraintTop_toBottomOf="@+id/div" />
+
+    <Button
+        android:id="@+id/sub"
+        android:layout_width="0dp"
+
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnOperatorButtonClick"
+        android:text="@string/sub"
+        android:textColor="@color/operatorButtonColor"
+        android:textSize="@dimen/operatorsTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_6"
+        app:layout_constraintTop_toBottomOf="@+id/mult" />
+
+    <Button
+        android:id="@+id/sum"
+        android:layout_width="0dp"
+
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnOperatorButtonClick"
+        android:text="@string/sum"
+        android:textColor="@color/operatorButtonColor"
+        android:textSize="@dimen/operatorsTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/equal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_3"
+        app:layout_constraintTop_toBottomOf="@+id/sub" />
+
+    <Button
+        android:id="@+id/equal"
+        android:layout_width="0dp"
+
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect2"
+        android:onClick="onEqualButtonClick"
+        android:text="@string/equal"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/operatorsTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/brack"
+        app:layout_constraintTop_toBottomOf="@+id/sum" />
+
+    <Button
+        android:id="@+id/percent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/persent"
+        app:layout_constraintBottom_toTopOf="@+id/_9"
+        app:layout_constraintEnd_toStartOf="@+id/div"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/del"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageButton
+        style="@android:style/Animation"
+        android:id="@+id/del"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple_effect"
+        android:onClick="onDeleteButtonClick"
+        android:src="@drawable/baseline_backspace_black_24"
+        app:layout_constraintBottom_toTopOf="@+id/_8"
+        app:layout_constraintEnd_toStartOf="@+id/percent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ac"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/ac"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ripple_effect"
+        android:onClick="onDeleteButtonClick"
+        android:text="@string/ac"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/_7"
+        app:layout_constraintEnd_toStartOf="@+id/del"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/_5"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_5"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_2"
+        app:layout_constraintEnd_toStartOf="@+id/_6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_4"
+        app:layout_constraintTop_toBottomOf="@+id/_8" />
+
+    <Button
+        android:id="@+id/_4"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_4"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_1"
+        app:layout_constraintEnd_toStartOf="@+id/_5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_7" />
+
+    <Button
+        android:id="@+id/_6"
+
+        android:layout_width="0dp"
+        android:layout_height="@dimen/numButtonHight"
+        android:background="@drawable/ripple_effect"
+        android:onClick="OnNumButtonClick"
+        android:text="@string/_6"
+        android:textSize="@dimen/numbersTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/_3"
+        app:layout_constraintEnd_toStartOf="@+id/sub"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/_5"
+        app:layout_constraintTop_toBottomOf="@+id/_9" />
+</androidx.constraintlayout.widget.ConstraintLayout>
