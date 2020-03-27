@@ -34,28 +34,33 @@ class CalculatorData {
 
     val stack = LinkedList<Char>()
 
-    private fun calculateUserInput(): String {
-        var ctr = stack.size
-        var cleaninput: String
-        val results: Double
-        if (userInput.isNotEmpty() && Utils.splitTheInput(userInput).size > 2) {
-            cleaninput = Utils.removeTheLastOperatorIfExists(userInput)
-            if (cleaninput.takeLast(3) == "one") {//then subtract one from stack size
-                ctr--
-            }
-            cleaninput = cleaninput.dropLast(3)
-            while (--ctr >= 0)
-                cleaninput = cleaninput.plus(CLOSINGBRACKET)
-
+    private fun calculateUserInput() =
+        if (Utils.splitTheInput(userInput).size > 2) {
+            val results: Double
+            val cleaninput = cleanTheInput()
             try {
                 results = Infix.inf2postF(cleaninput)
-                return if (results % 1 == 0.0) results.toString().dropLast(2) else results.toString()
+                if (results % 1 == 0.0) results.toString().dropLast(2) else results.toString()
             } catch (e: Exception) {
-                return ERRORMESSAGE
+                ERRORMESSAGE
             }
         } else
-            return ""
+            ""
+
+
+    private fun cleanTheInput(): String {
+        var ctr = stack.size
+        var cleaninput = userInput
+        val toDelete = Utils.howManyToRemove(userInput)
+        if (toDelete > 1)
+            --ctr;
+        cleaninput = cleaninput.dropLast(toDelete)
+        while (--ctr >= 0)
+            cleaninput = cleaninput.plus(CLOSINGBRACKET)
+        return cleaninput
     }
+
+
 //    fun setUserInput(operation: myEnum, value: String?) {
 //        when (operation) {
 //            myEnum.REMOVElASTCHAR -> _userInput.deleteCharAt(_userInput.length - 1)

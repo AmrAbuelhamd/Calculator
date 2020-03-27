@@ -2,19 +2,22 @@ package com.blogspot.soyamr.calculator.utils
 
 object Utils {
 
-    fun isOperator(ch: Char) =
-        ch == '/' || ch == '*' || ch == '-' || ch == '+'
+    fun isOperator(ch: String) =
+        ch == "/" || ch == "*" || ch == "-" || ch == "+"
 
-    fun removeTheLastOperatorIfExists(exep: String): String {
-        var ctr = "zer";
+    /*
+    counts the number of extra operators and opening brackets
+     */
+    fun howManyToRemove(exep: String): Int {
+        var ctr = 0
         var ee = exep
         if (exep.last() == '(') {
             ee = ee.dropLast(1)
-            ctr = "one"
+            ctr++;
         }
-        if (isOperator(ee.last()))
-            ee = ee.dropLast(1)
-        return ee.plus(ctr)
+        if (isOperator(ee.last().toString()))
+            ctr++
+        return ctr;
     }
 
     //split the expresion to parts

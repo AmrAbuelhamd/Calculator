@@ -10,6 +10,8 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
     private val data = CalculatorData()
 
     override fun OnNumButtonClick(number: String) {
+        if(data.userInput.endsWith(")"))
+            return
         data.userInput = number
         mainActivityView.showChangesToUser(data.userInput, data.results)
     }
@@ -20,7 +22,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
         )
             return
 
-        if (Utils.isOperator(data.userInput.last()))
+        if (Utils.isOperator(data.userInput.takeLast(1)))
             data.userInput = CalculatorData.REMOVE_LAST_CHAR
 
         data.userInput = operatorSign
@@ -35,15 +37,18 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
     }
 
     override fun onDelButtonClick() {
-        if (data.userInput.isNotEmpty() && data.userInput.last() == ')')
-            data.stack.addLast('(')
+        when (data.userInput.takeLast(1)) {
+            ")" -> data.stack.addLast('(')
+            "(" -> data.stack.pollLast()
+        }
+
         data.userInput = CalculatorData.REMOVE_LAST_CHAR
 
         mainActivityView.showChangesToUser(data.userInput, data.results)
     }
 
     override fun onEqualButtonClick() {
-        if (data.userInput.isNotEmpty() && Utils.splitTheInput(data.userInput).size > 2
+        if (Utils.splitTheInput(data.userInput).size > 2
             && !data.results.contentEquals(CalculatorData.ERRORMESSAGE)
         ) {
             data.equalButtonWasLastClicked = true
@@ -62,12 +67,11 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
      */
     override fun onBrackButtonClicked() {
 
-        if ((data.userInput.isNotEmpty() && Utils.isOperator(data.userInput.last()))
-            || data.userInput.isEmpty()
-        )
+        if (Utils.isOperator(data.userInput.takeLast(1)) || data.userInput.isEmpty())
             addOpeningBracket()
-        else if (data.userInput.isNotEmpty() && data.stack.isNotEmpty()
-            && Utils.splitTheInput(data.userInput).last().contains(Regex("(?:\\d+[.]?\\d*|\\))"))
+        else if (data.stack.isNotEmpty()
+            && Utils.splitTheInput(data.userInput)
+                .last().contains(Regex("(?:\\d+[.]?\\d*|\\))"))
         )
             addClosingBracket()
 
@@ -79,13 +83,13 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
         data.stack.pollLast()
     }
 
-    fun addOpeningBracket() {
+    private fun addOpeningBracket() {
         data.userInput = CalculatorData.OPENINGBRACKET.toString()
         data.stack.addLast(CalculatorData.CLOSINGBRACKET)
     }
 
     override fun onDotButtonClick(dotSign: String) {
-        if (data.userInput.isNotEmpty() && data.userInput.last().isDigit() &&
+        if (data.userInput.takeLast(1).contains(Regex("\\d")) &&
             !Utils.splitTheInput(data.userInput).last().contains(".")
         ) {
             data.userInput = dotSign
