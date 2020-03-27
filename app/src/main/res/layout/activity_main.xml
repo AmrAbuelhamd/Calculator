@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".view.MainActivity"
     >
 <!--    android:background="@android:color/white"-->
 
-
-    <!--todo make the new text go off screen-->
 
     <Button
         android:id="@+id/_1"
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_1"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/dot"
@@ -32,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_3"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/brack"
@@ -47,7 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_2"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_0"
@@ -62,11 +60,11 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="onBrackButtonClicked"
+        android:onClick="onButtonClick"
         android:text="@string/paranth"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/equal"
+        app:layout_constraintEnd_toStartOf="@+id/equalButtonView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/_0"
         app:layout_constraintTop_toBottomOf="@+id/_3" />
@@ -77,7 +75,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_0"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +90,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="onDotButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/point"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +105,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_7"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_4"
@@ -122,7 +120,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_9"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_6"
@@ -136,7 +134,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_8"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_5"
@@ -200,7 +198,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnOperatorButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/division"
         android:textColor="@color/operatorButtonColor"
         android:textSize="@dimen/operatorsTextSize"
@@ -219,7 +217,7 @@
 
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnOperatorButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/multip"
         android:textColor="@color/operatorButtonColor"
         android:textSize="@dimen/operatorsTextSize"
@@ -236,7 +234,7 @@
 
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnOperatorButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/sub"
         android:textColor="@color/operatorButtonColor"
         android:textSize="@dimen/operatorsTextSize"
@@ -253,24 +251,24 @@
 
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnOperatorButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/sum"
         android:textColor="@color/operatorButtonColor"
         android:textSize="@dimen/operatorsTextSize"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/equal"
+        app:layout_constraintBottom_toTopOf="@+id/equalButtonView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/_3"
         app:layout_constraintTop_toBottomOf="@+id/sub" />
 
     <Button
-        android:id="@+id/equal"
+        android:id="@+id/equalButtonView"
         android:layout_width="0dp"
 
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect2"
-        android:onClick="onEqualButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/equal"
         android:textColor="@android:color/white"
         android:textSize="@dimen/operatorsTextSize"
@@ -296,15 +294,32 @@
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <ImageButton
+    <!--    <ImageButton-->
+    <!--        style="@android:style/Animation"-->
+    <!--        android:id="@+id/del"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:background="@drawable/ripple_effect"-->
+    <!--        android:onClick="onButtonClick"-->
+    <!--        android:src="@drawable/baseline_backspace_black_24"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/_8"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/percent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/ac"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/guideline2"-->
+    <!--        app:layout_constraintVertical_bias="0.0"-->
+    <!--        app:layout_constraintVertical_chainStyle="packed" />-->
+    <Button
         style="@android:style/Animation"
         android:id="@+id/del"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/ripple_effect"
-        android:onClick="onDeleteButtonClick"
-        android:src="@drawable/baseline_backspace_black_24"
+        android:onClick="onButtonClick"
+        android:text="c"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/_8"
         app:layout_constraintEnd_toStartOf="@+id/percent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -319,7 +334,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/ripple_effect"
-        android:onClick="onDeleteButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/ac"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/_7"
@@ -336,7 +351,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_5"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_2"
@@ -351,7 +366,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_4"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_1"
@@ -366,7 +381,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/numButtonHight"
         android:background="@drawable/ripple_effect"
-        android:onClick="OnNumButtonClick"
+        android:onClick="onButtonClick"
         android:text="@string/_6"
         android:textSize="@dimen/numbersTextSize"
         app:layout_constraintBottom_toTopOf="@+id/_3"

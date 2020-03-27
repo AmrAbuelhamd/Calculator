@@ -1,4 +1,4 @@
-package com.blogspot.soyamr.calculator
+package com.blogspot.soyamr.calculator.utils
 
 import java.util.*
 
@@ -15,9 +15,8 @@ object Infix {
         for (current in listOfExepressionParts) {
 
             if (current == ")") {
-                popped = operatorList.last()
+                popped = operatorList.removeLast()
                 while (popped != "(") {
-                    popped = operatorList.removeLast()
                     postfix.addLast(
                         makeTheOperation(
                             popped,
@@ -25,15 +24,22 @@ object Infix {
                             postfix.removeLast()
                         )
                     )
+                    popped = operatorList.removeLast()
                 }
-                operatorList.removeLast()
 
-            } else if (!isOperator(current))
+            } else if (!isOperator(
+                    current
+                )
+            )
                 postfix.add(current.toDouble())
             else {
                 while (operatorList.isNotEmpty()
                     && current != "("
-                    && precedence(operatorList.last()) >= precedence(current)
+                    && precedence(
+                        operatorList.last()
+                    ) >= precedence(
+                        current
+                    )
                 ) {
                     postfix.add(
                         makeTheOperation(
