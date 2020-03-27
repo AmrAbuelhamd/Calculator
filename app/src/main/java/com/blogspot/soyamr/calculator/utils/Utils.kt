@@ -22,7 +22,16 @@ object Utils {
 
     //split the expresion to parts
     // from 9-7/7 to [9, -, 7, /, 7]
-    fun splitTheInput(exep: String) = exep.split(Regex("(?<=[\\-/+*()])|(?=[\\-/+*()])"))
-        .filter { it.isNotEmpty() }
+    fun splitTheInput(exep: String): List<String> {
+        var list = exep.split(Regex("(?<=[\\-/+*()])|(?=[\\-/+*()])"))
+            .filter { it.isNotEmpty() }
+        //handle cases when first number in the expression is minus, since the Regex will split it
+        //by merging the - with the digit
+        if (list.isNotEmpty() && list.first() == "-") {
+            list = list.drop(1).toMutableList()
+            list[0] = "-".plus(list[0])
+        }
+        return list
+    }
 
 }

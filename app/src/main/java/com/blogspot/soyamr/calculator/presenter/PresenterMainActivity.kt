@@ -10,13 +10,14 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
     private val data = CalculatorData()
 
     override fun OnNumButtonClick(number: String) {
-        if(data.userInput.endsWith(")"))
+        if (data.userInput.endsWith(")"))
             return
         data.userInput = number
         mainActivityView.showChangesToUser(data.userInput, data.results)
     }
 
     override fun onOperatorButtonClick(operatorSign: String) {
+
         if (data.userInput.isEmpty() || data.userInput.endsWith(operatorSign)
             || data.userInput.endsWith(CalculatorData.OPENINGBRACKET)
         )
@@ -52,7 +53,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
             && !data.results.contentEquals(CalculatorData.ERRORMESSAGE)
         ) {
             data.equalButtonWasLastClicked = true
-            mainActivityView.swapSize()
+            mainActivityView.swapColors()
         }
     }
 
@@ -105,7 +106,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
             data.userInput = resultTextViewText
             data.stack.clear()
 
-            mainActivityView.swapSize()
+            mainActivityView.swapColors()
             mainActivityView.showChangesToUser(data.userInput, data.results)
         }
     }

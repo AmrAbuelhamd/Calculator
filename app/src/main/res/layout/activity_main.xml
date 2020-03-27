@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity"
-    >
-<!--    android:background="@android:color/white"-->
+    tools:context=".view.MainActivity">
+    <!--    android:background="@android:color/white"-->
 
 
     <Button
@@ -145,16 +144,19 @@
 
     <TextView
 
+
         android:id="@+id/userInputTextView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:autoSizeTextType="uniform"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="14"
         android:textAlignment="viewEnd"
         android:textColor="@android:color/black"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/resultTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +177,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="0dp"
+        android:ellipsize="end"
         android:maxLines="1"
+
         android:textAlignment="viewEnd"
         android:textColor="@android:color/darker_gray"
         app:autoSizeTextType="uniform"
@@ -306,8 +310,8 @@
     <!--        app:layout_constraintVertical_bias="0.0"-->
     <!--        app:layout_constraintVertical_chainStyle="packed" />-->
     <Button
-        style="@android:style/Animation"
         android:id="@+id/del"
+        style="@android:style/Animation"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"

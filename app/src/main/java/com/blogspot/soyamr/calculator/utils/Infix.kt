@@ -5,7 +5,7 @@ import java.util.*
 object Infix {
     //the expression is guaranteed to have a balanced brackets, clean of additional operations at the end
     // or mistakes like +*-,
-    // underdeveleopment -> also it might have - at the beginning guaranteeing that the first number is minus
+    // under development -> also it might have - at the beginning guaranteeing that the first number is minus
     // the algorithm handles brackets situations but they must be balanced and in the right place
     fun inf2postF(expression: String): Double {
         val postfix: Deque<Double> = LinkedList()//queue
