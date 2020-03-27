@@ -40,7 +40,8 @@ class CalculatorData {
             val cleaninput = cleanTheInput()
             try {
                 results = Infix.inf2postF(cleaninput)
-                if (results % 1 == 0.0) results.toString().dropLast(2) else results.toString()
+//                if (results % 1 == 0.0) results.toString().dropLast(2) else results.toString()
+                results.toString()
             } catch (e: Exception) {
                 ERRORMESSAGE
             }

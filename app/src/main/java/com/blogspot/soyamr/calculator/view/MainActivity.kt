@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity(), ViewParent {
     }
 
     override fun swapSize() {
-        val temp = userInputTextView.textSize
-        userInputTextView.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION, resultTextView.textSize)
-        resultTextView.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION, temp)
+//        val temp = userInputTextView.textSize
+//        userInputTextView.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION, resultTextView.textSize)
+//        resultTextView.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION, temp)
 
         val temp1 = userInputTextView.textColors
         userInputTextView.setTextColor(resultTextView.textColors)
