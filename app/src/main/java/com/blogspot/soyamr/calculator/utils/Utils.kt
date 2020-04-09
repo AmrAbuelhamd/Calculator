@@ -1,5 +1,6 @@
 package com.blogspot.soyamr.calculator.utils
 
+
 object Utils {
 
     fun isOperator(ch: String) =

@@ -7,12 +7,24 @@ import com.blogspot.soyamr.calculator.view.ViewParent
 
 class PresenterMainActivity(private val mainActivityView: ViewParent) : Presenter {
 
+    //cool thing to be able to add funciton to the class from outside and call it as if it was part
+    // of the class originally
+    fun CalculatorData.append(value: String) {
+        userInput = value
+    }
+
+    fun CalculatorData.replaceConetent(value: String) {
+        userInput = CalculatorData.CLEAR
+        userInput = value
+    }
+
     private val data = CalculatorData()
 
     override fun OnNumButtonClick(number: String) {
         if (data.userInput.endsWith(")"))
             return
-        data.userInput = number
+        data.append(number)
+        data append number //infix way of calling function
         mainActivityView.showChangesToUser(data.userInput, data.results)
     }
 

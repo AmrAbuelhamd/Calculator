@@ -6,12 +6,30 @@ import java.util.*
 
 
 class CalculatorData {
+
     companion object {
         const val REMOVE_LAST_CHAR = "removes the last character"
         const val CLEAR = "wipes the data from the string"
         const val OPENINGBRACKET = '('
         const val CLOSINGBRACKET = ')'
         const val ERRORMESSAGE = "Bad expression"
+    }
+
+    fun removeLastChar() {
+        if (_userInput.isNotEmpty()) _userInput.deleteCharAt(_userInput.length - 1)
+    }
+
+    fun wipeData() {
+        _userInput.clear()
+    }
+
+    fun replaceDataWith(value: String) {
+        wipeData()
+        _userInput.append(value)
+    }
+
+    infix fun append(str: String) {
+        _userInput.append(str)
     }
 
     private val _userInput = StringBuilder()
