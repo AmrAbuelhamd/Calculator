@@ -2,30 +2,18 @@ package com.blogspot.soyamr.calculator.presenter
 
 
 import com.blogspot.soyamr.calculator.model.CalculatorData
-import com.blogspot.soyamr.calculator.utils.Utils
+import com.blogspot.soyamr.calculator.model.Utils
 import com.blogspot.soyamr.calculator.view.ViewParent
 
-class PresenterMainActivity(private val mainActivityView: ViewParent) : Presenter {
-
-    //cool thing to be able to add funciton to the class from outside and call it as if it was part
-    // of the class originally
-    fun CalculatorData.append(value: String) {
-        userInput = value
-    }
-
-    fun CalculatorData.replaceConetent(value: String) {
-        userInput = CalculatorData.CLEAR
-        userInput = value
-    }
+class MainPresenter(private val mainView: ViewParent) : Presenter {
 
     private val data = CalculatorData()
 
-    override fun OnNumButtonClick(number: String) {
+    override fun onNumButtonClick(number: String) {
         if (data.userInput.endsWith(")"))
             return
-        data.append(number)
-        data append number //infix way of calling function
-        mainActivityView.showChangesToUser(data.userInput, data.results)
+        data.userInput = number
+        mainView.showChangesToUser(data.userInput, data.results)
     }
 
     override fun onOperatorButtonClick(operatorSign: String) {
@@ -40,13 +28,13 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
 
         data.userInput = operatorSign
 
-        mainActivityView.showChangesToUser(data.userInput, data.results)
+        mainView.showChangesToUser(data.userInput, data.results)
     }
 
     override fun onAcButtonClick() {
         data.userInput = CalculatorData.CLEAR
         data.stack.clear()
-        mainActivityView.showChangesToUser(data.userInput, data.results)
+        mainView.showChangesToUser(data.userInput, data.results)
     }
 
     override fun onDelButtonClick() {
@@ -57,7 +45,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
 
         data.userInput = CalculatorData.REMOVE_LAST_CHAR
 
-        mainActivityView.showChangesToUser(data.userInput, data.results)
+        mainView.showChangesToUser(data.userInput, data.results)
     }
 
     override fun onEqualButtonClick() {
@@ -65,7 +53,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
             && !data.results.contentEquals(CalculatorData.ERRORMESSAGE)
         ) {
             data.equalButtonWasLastClicked = true
-            mainActivityView.swapColors()
+            mainView.swapColors()
         }
     }
 
@@ -88,7 +76,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
         )
             addClosingBracket()
 
-        mainActivityView.showChangesToUser(data.userInput, data.results)
+        mainView.showChangesToUser(data.userInput, data.results)
     }
 
     private fun addClosingBracket() {
@@ -106,7 +94,7 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
             !Utils.splitTheInput(data.userInput).last().contains(".")
         ) {
             data.userInput = dotSign
-            mainActivityView.showChangesToUser(data.userInput, data.results)
+            mainView.showChangesToUser(data.userInput, data.results)
         }
     }
 
@@ -118,8 +106,8 @@ class PresenterMainActivity(private val mainActivityView: ViewParent) : Presente
             data.userInput = resultTextViewText
             data.stack.clear()
 
-            mainActivityView.swapColors()
-            mainActivityView.showChangesToUser(data.userInput, data.results)
+            mainView.swapColors()
+            mainView.showChangesToUser(data.userInput, data.results)
         }
     }
 }

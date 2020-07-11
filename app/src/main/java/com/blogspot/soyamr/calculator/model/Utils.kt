@@ -1,4 +1,4 @@
-package com.blogspot.soyamr.calculator.utils
+package com.blogspot.soyamr.calculator.model
 
 
 object Utils {
@@ -16,7 +16,10 @@ object Utils {
             ee = ee.dropLast(1)
             ctr++;
         }
-        if (isOperator(ee.last().toString()))
+        if (isOperator(
+                ee.last().toString()
+            )
+        )
             ctr++
         return ctr;
     }

@@ -1,41 +1,45 @@
 package com.blogspot.soyamr.calculator.view
 
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.blogspot.soyamr.calculator.R
+import com.blogspot.soyamr.calculator.presenter.MainPresenter
 import com.blogspot.soyamr.calculator.presenter.Presenter
-import com.blogspot.soyamr.calculator.presenter.PresenterMainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), ViewParent {
-    lateinit var presenterMainActivity: Presenter
+    lateinit var MainPresenter: Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenterMainActivity = PresenterMainActivity(this)
+        MainPresenter = MainPresenter(this)
+
+//        _0.setOnClickListener { v->onButton(v) }
     }
 
+//    fun onButton(v: View) {
+//
+//    }
 
     fun onButtonClick(view: View) {
 
-        presenterMainActivity.restoreTextViewSizes(resultTextView.text.toString())
+        MainPresenter.restoreTextViewSizes(resultTextView.text.toString())
 
         view as Button
         when (view) {
             _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 ->
-                presenterMainActivity.OnNumButtonClick(view.text.toString())
-            sum, sub, percent, mult, div -> presenterMainActivity.onOperatorButtonClick(view.text.toString())
-            ac -> presenterMainActivity.onAcButtonClick()
-            del -> presenterMainActivity.onDelButtonClick()
-            equalButtonView -> presenterMainActivity.onEqualButtonClick()
-            dot -> presenterMainActivity.onDotButtonClick(view.text.toString())
-            brack -> presenterMainActivity.onBrackButtonClicked()
+                MainPresenter.onNumButtonClick(view.text.toString())
+            sum, sub, percent, mult, div -> MainPresenter.onOperatorButtonClick(view.text.toString())
+            ac -> MainPresenter.onAcButtonClick()
+            del -> MainPresenter.onDelButtonClick()
+            equalButtonView -> MainPresenter.onEqualButtonClick()
+            dot -> MainPresenter.onDotButtonClick(view.text.toString())
+            brack -> MainPresenter.onBrackButtonClicked()
         }
     }
 
@@ -45,13 +49,9 @@ class MainActivity : AppCompatActivity(), ViewParent {
     }
 
     override fun swapColors() {
-//        val temp = userInputTextView.textSize
-//        userInputTextView.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION, resultTextView.textSize)
-//        resultTextView.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION, temp)
-
-        val temp1 = userInputTextView.textColors
+        val temp = userInputTextView.textColors
         userInputTextView.setTextColor(resultTextView.textColors)
-        resultTextView.setTextColor(temp1)
+        resultTextView.setTextColor(temp)
     }
 
 }

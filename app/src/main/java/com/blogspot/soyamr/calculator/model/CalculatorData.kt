@@ -1,7 +1,5 @@
 package com.blogspot.soyamr.calculator.model
 
-import com.blogspot.soyamr.calculator.utils.Infix
-import com.blogspot.soyamr.calculator.utils.Utils
 import java.util.*
 
 
@@ -13,23 +11,6 @@ class CalculatorData {
         const val OPENINGBRACKET = '('
         const val CLOSINGBRACKET = ')'
         const val ERRORMESSAGE = "Bad expression"
-    }
-
-    fun removeLastChar() {
-        if (_userInput.isNotEmpty()) _userInput.deleteCharAt(_userInput.length - 1)
-    }
-
-    fun wipeData() {
-        _userInput.clear()
-    }
-
-    fun replaceDataWith(value: String) {
-        wipeData()
-        _userInput.append(value)
-    }
-
-    infix fun append(str: String) {
-        _userInput.append(str)
     }
 
     private val _userInput = StringBuilder()
@@ -79,12 +60,4 @@ class CalculatorData {
         return cleaninput
     }
 
-
-//    fun setUserInput(operation: myEnum, value: String?) {
-//        when (operation) {
-//            myEnum.REMOVElASTCHAR -> _userInput.deleteCharAt(_userInput.length - 1)
-//            myEnum.APPEND -> _userInput.append(value)
-//            myEnum.CLEAR -> _userInput.clear()
-//        }
-//    }
 }

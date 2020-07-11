@@ -1,4 +1,4 @@
-package com.blogspot.soyamr.calculator.utils
+package com.blogspot.soyamr.calculator.model
 
 import java.util.*
 
@@ -11,7 +11,8 @@ object Infix {
         val postfix: Deque<Double> = LinkedList()//queue
         val operatorList: Deque<String> = LinkedList()
         var popped: String
-        val listOfExepressionParts = Utils.splitTheInput(expression)
+        val listOfExepressionParts =
+            Utils.splitTheInput(expression)
         for (current in listOfExepressionParts) {
 
             if (current == ")") {
@@ -66,7 +67,9 @@ object Infix {
 
     }
 
-    private fun isOperator(current: String) = precedence(current) > 0
+    private fun isOperator(current: String) = precedence(
+        current
+    ) > 0
 
     private fun precedence(current: String) =
         when (current) {
